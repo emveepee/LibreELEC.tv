@@ -1,0 +1,72 @@
+From 4918f81592017526cfdcee615275654a765f1a5b Mon Sep 17 00:00:00 2001
+From: emveepee <nospam>
+Date: Sun, 25 Apr 2021 19:20:06 -0400
+Subject: [PATCH] Remove googletests
+
+---
+ Makefile.am  | 13 +++----------
+ configure.ac |  7 +++----
+ 2 files changed, 6 insertions(+), 14 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 9ac01e1..9e0cb40 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,7 +1,7 @@
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-SUBDIRS = src tests
+-DIST_SUBDIRS = src tests
++SUBDIRS = src
++DIST_SUBDIRS = src
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+ 
+@@ -9,11 +9,4 @@ pkgconfig_DATA= libgdiplus.pc
+ 
+ DISTCLEANFILES= libgdiplus.pc
+ 
+-EXTRA_DIST = libgdiplus.pc.in README.md LICENSE libgdiplus.sln winconfig.h.in update_submodules.sh external/googletest
+-
+-all: update_submodules
+-
+-update_submodules:
+-	@cd $(top_srcdir) && ./update_submodules.sh
+-
+-.PHONY: update_submodules
++EXTRA_DIST = libgdiplus.pc.in README.md LICENSE libgdiplus.sln winconfig.h.in
+diff --git a/configure.ac b/configure.ac
+index 68f1852..11274ef 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -444,7 +444,7 @@ dnl Test for X11. Allow compiling without x11 support using the without-x11
+ dnl flag
+ dnl
+ 
+-AC_ARG_WITH(x11, 
++AC_ARG_WITH(x11,
+ 	[AC_HELP_STRING([--without-x11], [Disable X11 support])],
+ 	[disable_x11=yes])
+ 
+@@ -493,7 +493,7 @@ AM_CONDITIONAL(HAVE_LIBEXIF, test x$libexif_pkgconfig = xyes)
+ 
+ GDIPLUS_PKG_LIBS="$GDIPLUS_LIBS"
+ GDIPLUS_PKG_CFLAGS="$GDIPLUS_CFLAGS"
+- 
++
+ AC_SUBST(GDIPLUS_LIBS)
+ AC_SUBST(GDIPLUS_CFLAGS)
+ AC_SUBST(GDIPLUS_INCLUDES)
+@@ -505,8 +505,7 @@ AC_OUTPUT([
+ Makefile
+ libgdiplus.pc
+ libgdiplus0.spec
+-src/Makefile
+-tests/Makefile])
++src/Makefile])
+ 
+ echo "---"
+ echo "Configuration summary"
+-- 
+2.31.1.windows.1
+
