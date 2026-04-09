@@ -1,0 +1,70 @@
+# Kodi Media Center language file
+# Addon Name: yauiclient
+# Addon id: service.yauiclient
+# Addon Provider: Team LibreELEC
+msgid ""
+msgstr ""
+
+msgctxt "#30000"
+msgid "Settings"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Server IP or hostname"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Port"
+msgstr ""
+
+msgctxt "#30003"
+msgid "PIN"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Resolution"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Auto deinterlace"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Enable LIRC"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Action setting"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Sync audio"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Configure audio in Kodi and use those settings here"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Shutdown on power key"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Restart Kodi on power off is default"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Enable autostart"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Enable autostart and set favourite"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Remote duplcate fix"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Stops xorg from grabbing remote"
+msgstr ""

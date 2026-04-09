@@ -1,0 +1,23 @@
+[Unit]
+Description=yauiclient NextPVR media player
+Documentation=https://github.com/emveepee/yauiclient
+Requires=windowmanager.service
+
+[Service]
+Type=simple
+User=root
+Environment="DISPLAY=:0"
+Environment="LD_LIBRARY_PATH=/storage/.kodi/addons/service.yauiclient/lbin"
+Environment="XDG_CACHE_HOME=/storage/.kodi/userdata/addon_data/service.yauiclient/cache"
+Environment="MESA_SHADER_CACHE_DIR=/storage/.kodi/userdata/addon_data/service.yauiclient/cache/mesa"
+SyslogIdentifier=%N
+ExecStartPre=/usr/bin/systemctl stop kodi
+ExecStartPre=/bin/systemctl stop eventlircd
+ExecStartPre=/bin/mkdir -p /storage/.kodi/userdata/addon_data/service.yauiclient/cache/mesa
+ExecStart=/storage/.kodi/addons/service.yauiclient/bin/yauiclient
+ExecStopPost=/bin/sh -c '[ "$(systemctl is-system-running)" != "stopping" ] && systemctl start eventlircd'
+ExecStopPost=/bin/sh -c '[ "$(systemctl is-system-running)" != "stopping" ] && systemctl start kodi'
+StandardOutput=journal
+StandardError=journal
+Restart=no
+

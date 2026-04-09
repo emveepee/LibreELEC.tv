@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings version="2">
+  <setting id="host"></setting>
+  <setting id="port">8866</setting>
+  <setting id="pin"></setting>
+  <setting id="resolution">1280x720</setting>
+  <setting id="deinterlace">true</setting>
+  <setting id="lirc">false</setting>
+</settings>
