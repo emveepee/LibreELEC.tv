@@ -1,0 +1,20 @@
+--- a/src/egl_context.c	2026-04-07 09:48:29.916679923 -0400
++++ b/src/egl_context.c	2026-04-07 09:48:29.926680173 -0400
+@@ -324,7 +324,6 @@
+
+     while (waiting_for_flip) {
+         FD_ZERO(&fds);
+-        FD_SET(0, &fds);
+         FD_SET(_glfw.kmsdrm.drm.fd, &fds);
+
+         ret = select(_glfw.kmsdrm.drm.fd + 1, &fds, NULL, NULL, NULL);
+@@ -334,9 +333,6 @@
+         } else if (ret == 0) {
+             _glfwInputError(GLFW_PLATFORM_ERROR, "swapBufferEGL: select timeout!");
+             return;
+-        } else if (FD_ISSET(0, &fds) && !_glfw.kmsdrm.drm.nonblocking) {
+-            _glfwInputError(GLFW_PLATFORM_ERROR, "swapBufferEGL: user interrupted!");
+-            return;
+         }
+         // debug_printf("%d swapBufferEGL: drmHandleEvent drm.fd=%d\n", count_open_files(), _glfw.kmsdrm.drm.fd);
+         drmHandleEvent(_glfw.kmsdrm.drm.fd, &evctx);

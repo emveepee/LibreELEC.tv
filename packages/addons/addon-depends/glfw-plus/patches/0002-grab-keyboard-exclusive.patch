@@ -1,0 +1,10 @@
+--- a/src/linux_keyboard.c.orig2	2026-04-07 15:03:04.391305734 -0400
++++ b/src/linux_keyboard.c	2026-04-07 15:04:27.544435224 -0400
+@@ -179,6 +179,7 @@
+             axisCount++;
+         }
+     }
++    ioctl(_glfw.kmsdrm.keyboard_fd, EVIOCGRAB, (void*)1);
+     debug_printf("openKeyboardDevice: %s fd=%d \"%s\" [OK]\n\t%d keys\n\t%d hats\n\t%d axes\n", path, _glfw.kmsdrm.keyboard_fd, name, buttonCount, hatCount, axisCount);
+     return GLFW_TRUE;
+ }
