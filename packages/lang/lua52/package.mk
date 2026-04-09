@@ -11,7 +11,7 @@ PKG_DEPENDS_TARGET="toolchain"
 PKG_LONGDESC="Lua is a powerful, efficient, lightweight, embeddable scripting language."
 
 make_target() {
-  make CC=${CC} AR="${AR} rcu" posix
+  make CC="${CC} -fPIC" AR="${AR} rcu" posix
 }
 
 makeinstall_target() {
